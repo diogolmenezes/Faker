@@ -65,3 +65,10 @@ var user = new Faker<User>().Create();
 var user = new Faker<User>().CreateMany(10);
 ```
 
+## Tests
+
+Faker has many tests in the test project if you want take a look.
+
+## Pull Requests
+
+Faker is open to improve, send your pull request and help Faker to be the best fake object generator ever :)
