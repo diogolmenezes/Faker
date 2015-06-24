@@ -1,5 +1,5 @@
 # Faker
-Faker is a fake object generator like rails factory girl.
+Faker is a C# fake object generator like rails factory girl.
 
 ## Creating simple fake objects
 Faker can create automatic fake objects based in your custom type:
