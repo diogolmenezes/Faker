@@ -1,5 +1,9 @@
 # Faker
-Faker is a C# fake object generator like rails factory girl.
+Faker is a C# fake object generator like rails factory girl and it´s awesome to generate fake data for make tests.
+
+## Getting Started
+
+Add [this reference]:https://github.com/diogolmenezes/Faker/blob/master/Binary/Faker.dll (Faker.dll) on your test project.
 
 ## Creating simple fake objects
 Faker can create automatic fake objects based in your custom type:
