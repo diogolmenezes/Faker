@@ -2,7 +2,7 @@
 Faker is a fake object generator like rails factory girl.
 
 ## Creating simple fake objects
-Faker you can create automatic fake objects based in your custom type:
+Faker can create automatic fake objects based in your custom type:
 
 ```
 public class User
@@ -34,9 +34,9 @@ var user = new Faker<User>().CreateMany(5, x=> x.Age = 18 && x.CreatedAt = DateT
 ```
 
 ## Creating fake objects using custom factory
-You can create objects using a custom default schema, for this you need to implement IFaker<T> interface.
+You can create objects using custom default schema, and all you need is implement IFaker<T> interface.
 
-Faker implements some types of generators, like NameGenerator, EmailGenerator, IntegerGenerator and DateTimeGenerator and you can youse your custom generators too.
+Faker implements some types of generators, like NameGenerator, EmailGenerator, IntegerGenerator and DateTimeGenerator and you can use your custom generators too.
 
 ```
 public class User : IFaker<User>
