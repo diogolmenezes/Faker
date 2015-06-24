@@ -18,19 +18,26 @@ namespace Faker
             }
         }
 
-        public T Create(int number = 0)
+        public T Create(Action<T> exp = null)
         {
-            number = number == 0 ? 1 : number;
+            return Create(0, exp);
+        }
+        
+        public T Create(int number, Action<T> exp = null)
+        {
+            number   = number == 0 ? 1 : number;
+            var fake = Fake(number);
+            
+            // defining custom properties
+            if(exp != null)
+                exp(fake);
 
-            return Fake(number);
+            return fake;
         }
 
         public IList<T> CreateMany(int total, Action<T> exp = null)
         {
-            var list = Enumerable.Range(0, total).Select(x => Create(x + 1)).ToList();
-
-            if (exp != null)
-                list.ToList().ForEach(exp);
+            var list = Enumerable.Range(0, total).Select(x => Create(x + 1, exp)).ToList();
 
             return list;
         }

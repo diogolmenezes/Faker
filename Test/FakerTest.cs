@@ -39,6 +39,15 @@ namespace Faker.Test
         }
 
         [TestMethod]
+        public void Can_Create_Car_Without_Color()
+        {
+            var car = new Faker<Car>().Create(x => x.Color = "");
+
+            Assert.IsNotNull(car);
+            Assert.AreEqual(car.Color, "");
+        }
+
+        [TestMethod]
         public void Can_Create_5_Without_Color()
         {
             var cars = new Faker<Car>().CreateMany(5, x => x.Color = "");            

@@ -6,11 +6,6 @@ namespace Faker.Test.Entity
 {
      public class User : IFaker<User> {
 
-        public User()
-        {
-            Name = Guid.NewGuid().ToString("N");
-        }
-
         public string Name  { get; set; }
         public string Email  { get; set; }
         public int Age  { get; set; }
