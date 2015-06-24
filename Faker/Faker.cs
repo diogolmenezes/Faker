@@ -90,9 +90,9 @@ namespace Faker
                     property.SetValue(entity, StringGenerator.Get(prefix: property.Name, number: number, maxLength: length), null);
                 }
                 else if (type.IsNumber())
-                    property.SetValue(entity, new Random().Next(0, 100), null);
+                    property.SetValue(entity, IntegerGenerator.Get(0,100), null);
                 else if (type.IsDateTime())
-                    property.SetValue(entity, new DateTimeGenerator().Get(), null);
+                    property.SetValue(entity, DateTimeGenerator.Get(), null);
                 else
                     TrySetDefaultValue(entity, property, type);
             }

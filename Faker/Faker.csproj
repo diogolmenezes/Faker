@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Faker.cs" />
     <Compile Include="Generator\DateTimeGenerator.cs" />
+    <Compile Include="Generator\IntegerGenerator.cs" />
     <Compile Include="Generator\EmailGenerator.cs" />
     <Compile Include="Generator\NameGenerator.cs" />
     <Compile Include="Generator\StringGenerator.cs" />

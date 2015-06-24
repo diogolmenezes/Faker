@@ -4,7 +4,7 @@ namespace Faker.Generator
 {
     public class DateTimeGenerator
     {
-        public DateTime Get()
+        public static DateTime Get()
         {
             DateTime start = new DateTime(1995, 1, 1);
             Random gen     = new Random();
