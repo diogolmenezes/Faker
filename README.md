@@ -42,7 +42,10 @@ var user = new Faker<User>().CreateMany(x=> { x.Age = 18; x.CreatedAt = DateTime
 // creating 5 fake users with 18 years and CreatedAt on today
 var user = new Faker<User>().CreateMany(5, x=> { x.Age = 18; x.CreatedAt = DateTime.Now; });
 
-// if you want that the generated data have a sequencial number at the end, like (Name 1, Name 2, Email_1@gmail.com, Email_2@gmail.com) use UseSequentialNumber in Faker contructor. By default UseSequentialNumber is false.
+// if you want that the generated data have a sequencial number at the end,
+// like (Name 1, Name 2, Email_1@gmail.com, Email_2@gmail.com)
+// use UseSequentialNumber in Faker contructor.
+// By default UseSequentialNumber is false.
 var user = new Faker<User>(true).CreateMany(10);
 ```
 
@@ -61,7 +64,7 @@ public class User : IFaker<User>
 
     public void Fake(int number)
     {
-        Name       = new NameGenerator().Get();  // Name generator will generate real names like Jhon Doe, Bruno Matarazo
+        Name       = new NameGenerator().Get(number: number);  // Name generator will generate real names like Jhon Doe 1, Bruno Matarazo 2.
         Email      = new EmailGenerator().Get(); // Email generator will generate real mails like jhon_doe@gmail.com
         Age        = new IntegerGenerator().Get(15, 99);
         CreatedAt  = new DateTimeGenerator().Get();
