@@ -55,7 +55,7 @@ var user = new Faker<User>(true).CreateMany(10);
 
 ## Using simple generators
 
-Faker implements some types of generators, like NameGenerator, EmailGenerator, LoginGenerator, IntegerGenerator and DateTimeGenerator and you can use your custom generators too.
+Faker implements some types of generators, like NameGenerator, EmailGenerator, LoginGenerator, IntegerGenerator and DateTimeGenerator and you can use your custom generator too.
 
 By default faker will try to use the best generator based on your property name, so if you have a Email property, faker will give you a e-mail address ;)
 
@@ -66,7 +66,7 @@ var user = new Faker<User>().CreateMany(10, x=> { x.Name = new NameGenerator().G
 
 ## Creating fake objects using custom factory
 
-You can create objects using custom default schema, and all you need is implement IFaker<T> interface.
+You can create objects using custom default schema, and all you need to do is implement IFaker<T> interface.
 
 ```c#
 public class User : IFaker<User>
