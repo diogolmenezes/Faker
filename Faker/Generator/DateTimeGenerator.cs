@@ -1,4 +1,5 @@
 ﻿using Faker.Interface;
+using Faker.Util;
 using System;
 
 namespace Faker.Generator
@@ -8,10 +9,8 @@ namespace Faker.Generator
         public DateTime Get()
         {
             DateTime start = new DateTime(1995, 1, 1);
-            Random gen     = new Random();
-
             int range = (DateTime.Today - start).Days;
-            return start.AddDays(gen.Next(range));
+            return start.AddDays(FakerRandom.Next(0, range));
         }
     }
 }

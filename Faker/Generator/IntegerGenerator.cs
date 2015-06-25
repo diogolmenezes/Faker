@@ -1,5 +1,5 @@
 ﻿using Faker.Interface;
-using System;
+using Faker.Util;
 
 namespace Faker.Generator
 {
@@ -7,7 +7,7 @@ namespace Faker.Generator
     {        
         public int Get(int min = 0, int max = 100)
         {
-            return new Random().Next(min, max);
+            return FakerRandom.Next(min, max);
         }
 
         public int Get()

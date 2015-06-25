@@ -15,6 +15,9 @@ namespace Faker.Factory
             if (property.Name.IsMailField())
                 return new EmailGenerator();
 
+            if (property.Name.IsLoginField())
+                return new LoginGenerator();
+
             return new StringGenerator();
         }
     }

@@ -11,6 +11,9 @@ namespace Faker.Test.Entity
         public string Mail { get; set; }
 
         [MaxLength(200)]
-        public string Email { get; set; }        
+        public string Email { get; set; }
+
+        [MaxLength(50)]
+        public string Login { get; set; }        
     }
 }

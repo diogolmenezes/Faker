@@ -1,4 +1,5 @@
-﻿using Faker.Test.Entity;
+﻿using Faker.Generator;
+using Faker.Test.Entity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
@@ -91,10 +92,19 @@ namespace Faker.Test
         [TestMethod]
         public void Fill_With_Real_Name_Properties_Called_Name()
         {
-            var worker = new Faker<Worker>().Create();
+            var worker    = new Faker<Worker>().Create();
+            var firstName = worker.Name.Split(' ').First();
+            var lastName  = worker.Name.Split(' ')[1];
 
-            Assert.IsTrue(worker.Name.Split(' ').Count() > 1);
-            Assert.IsTrue(!worker.Name.ToLower().Contains("worker"));
+            Assert.IsTrue(NameGenerator.Names.Any(x => firstName.Contains(x)));
+            Assert.IsTrue(NameGenerator.LastNames.Any(x => lastName.Contains(x)));
+        }
+
+        [TestMethod]
+        public void Fill_With_Real_Login_Properties_Called_Login()
+        {
+            var worker = new Faker<Worker>().Create();
+            Assert.IsTrue(LoginGenerator.Logins.Any(x => worker.Login.Contains(x)));
         }
     }
 }

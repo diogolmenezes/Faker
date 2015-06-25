@@ -16,6 +16,11 @@ namespace Faker.Generator
             return fake;
         }
 
+        public string Get(string text, int maxLength)
+        {
+            return Get(text, null, 0, maxLength);
+        }
+
         public string Get(int number = 1, int maxLength = 0)
         {
             return Get(null, null, number, maxLength);

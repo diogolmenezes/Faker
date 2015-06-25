@@ -40,7 +40,7 @@ var user = new Faker<User>().CreateMany(5, x=> { x.Age = 18; x.CreatedAt = DateT
 ## Creating fake objects using custom factory
 You can create objects using custom default schema, and all you need is implement IFaker<T> interface.
 
-Faker implements some types of generators, like NameGenerator, EmailGenerator, IntegerGenerator and DateTimeGenerator and you can use your custom generators too.
+Faker implements some types of generators, like NameGenerator, EmailGenerator, LoginGenerator, IntegerGenerator and DateTimeGenerator and you can use your custom generators too.
 
 ```
 public class User : IFaker<User>
