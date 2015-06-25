@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Faker.Interface;
+using System;
 
 namespace Faker.Generator
 {
-    public class IntegerGenerator
+    public class IntegerGenerator : IGenerator<int>
     {        
-        public static int Get(int min = 0, int max = 100)
+        public int Get(int min = 0, int max = 100)
         {
             return new Random().Next(min, max);
+        }
+
+        public int Get()
+        {
+            return Get(0, 100);
         }
     }
 }

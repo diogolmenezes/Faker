@@ -52,10 +52,10 @@ public class User : IFaker<User>
 
     public void Fake(int number)
     {
-        Name       = NameGenerator.Get();  // Name generator will generate real names like Jhon Doe, Bruno Matarazo
-        Email      = EmailGenerator.Get(); // Email generator will generate real mails like jhon_doe@gmail.com
-        Age        = IntegerGenerator.Get(15, 99);
-        CreatedAt  = DateTimeGenerator.Get();
+        Name       = new NameGenerator().Get();  // Name generator will generate real names like Jhon Doe, Bruno Matarazo
+        Email      = new EmailGenerator().Get(); // Email generator will generate real mails like jhon_doe@gmail.com
+        Age        = new IntegerGenerator().Get(15, 99);
+        CreatedAt  = new DateTimeGenerator().Get();
     }
 }
 ```
@@ -75,7 +75,7 @@ You can use generators without use IFaker<T> interface too.
 
 ```
 // creating 10 users with real names and real mail adresses
-var user = new Faker<User>().CreateMany(10, x=> { x.Name = NameGenerator.Get(); x.Email = EmailGenerator.Get() });
+var user = new Faker<User>().CreateMany(10, x=> { x.Name = new NameGenerator().Get(); x.Email = new EmailGenerator().Get() });
 ```
 
 ## Tests

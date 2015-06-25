@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Faker
+namespace Faker.Extension
 {
     public static class TypeExtensions
     {

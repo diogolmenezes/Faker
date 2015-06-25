@@ -69,5 +69,32 @@ namespace Faker.Test
 
             Assert.IsTrue(cars.All(x => x.Color == "" && x.Model == ""));
         }
+
+        [TestMethod]
+        public void Can_Initialize_Lists()
+        {
+            var car = new Faker<Car>().Create();
+
+            Assert.IsNotNull(car);
+            Assert.IsNotNull(car.Skils);
+        }
+
+        [TestMethod]
+        public void Fill_With_Real_Email_Properties_Called_Email_Or_Mail()
+        {
+            var worker = new Faker<Worker>().Create();
+
+            Assert.IsTrue(worker.Mail.Contains("@"));
+            Assert.IsTrue(worker.Email.Contains("@"));
+        }
+
+        [TestMethod]
+        public void Fill_With_Real_Name_Properties_Called_Name()
+        {
+            var worker = new Faker<Worker>().Create();
+
+            Assert.IsTrue(worker.Name.Split(' ').Count() > 1);
+            Assert.IsTrue(!worker.Name.ToLower().Contains("worker"));
+        }
     }
 }

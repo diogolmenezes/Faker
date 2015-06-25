@@ -13,10 +13,10 @@ namespace Faker.Test.Entity
 
         public void Fake(int number)
         {
-            Name       = NameGenerator.Get();
-            Email      = EmailGenerator.Get();
-            Age        = IntegerGenerator.Get(15, 99);
-            CreatedAt  = DateTimeGenerator.Get();        
+            Name       = new NameGenerator().Get();
+            Email      = new EmailGenerator().Get();
+            Age        = new IntegerGenerator().Get(15, 99);
+            CreatedAt  = new DateTimeGenerator().Get();        
         }
     }
 }

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Faker.Interface;
+using System;
 
 namespace Faker.Generator
 {
-    public class DateTimeGenerator
+    public class DateTimeGenerator : IGenerator<DateTime>
     {
-        public static DateTime Get()
+        public DateTime Get()
         {
             DateTime start = new DateTime(1995, 1, 1);
             Random gen     = new Random();

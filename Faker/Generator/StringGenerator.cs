@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Faker.Interface;
+using System;
 
 namespace Faker.Generator
 {
-    public class StringGenerator
+    public class StringGenerator : IStringGenerator
     {
-        public static string Get(string prefix = "FakeObject", string suffix = null, int number = 1, int maxLength = 0)
+        public string Get(string prefix = "FakeObject", string suffix = null, int number = 1, int maxLength = 0)
         {
             var id   = number == 0 ? "" : String.Format("{0}", number);
             var fake = String.Format("{0} {1} {2}", prefix, suffix, id);
@@ -13,6 +14,11 @@ namespace Faker.Generator
                 return fake.Substring(0, maxLength);
 
             return fake;
+        }
+
+        public string Get(int number = 1, int maxLength = 0)
+        {
+            return Get(null, null, number, maxLength);
         }
     }
 }
