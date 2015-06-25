@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Faker.Extension
 {
@@ -7,35 +8,32 @@ namespace Faker.Extension
     {
         public static bool IsString(this Type type)
         {
-            return type == typeof(String) || type == typeof(string);
+            Type[] allowedTypes = { typeof(string), typeof(String) };           
+            return allowedTypes.Contains(type);
         }        
 
         public static bool IsBoolean(this Type type)
         {
-            bool notNullTypes = type == typeof(bool) || type == typeof(Boolean);
-            bool nullTypes    = type == typeof(bool?) || type == typeof(Boolean?);
-            return notNullTypes || nullTypes;
+            Type[] allowedTypes = { typeof(bool), typeof(Boolean), typeof(bool?), typeof(Boolean?) };
+            return allowedTypes.Contains(type);
         }
 
         public static bool IsInteger(this Type type)
         {
-            bool notNullTypes = type == typeof(int) || type == typeof(Int16) || type == typeof(Int32) || type == typeof(Int64);
-            bool nullTypes    = type == typeof(int?) || type == typeof(Int16?) || type == typeof(Int32?) || type == typeof(Int64?);
-            return notNullTypes || nullTypes;
+            Type[] allowedTypes = { typeof(int), typeof(Int16), typeof(Int32), typeof(Int64), typeof(int?), typeof(Int16?), typeof(Int32?), typeof(Int64?) };
+            return allowedTypes.Contains(type);
         }
 
         public static bool IsFloat(this Type type)
         {
-            bool notNullTypes = type == typeof(float);
-            bool nullTypes    = type == typeof(float?);
-            return notNullTypes || nullTypes;
+            Type[] allowedTypes = { typeof(float), typeof(float?) };
+            return allowedTypes.Contains(type);            
         }
 
         public static bool IsDouble(this Type type)
         {
-            bool notNullTypes = type == typeof(double) || type == typeof(Double);
-            bool nullTypes    = type == typeof(double?) || type == typeof(Double?);
-            return notNullTypes || nullTypes;
+            Type[] allowedTypes = { typeof(double), typeof(Double), typeof(double?), typeof(Double?) };
+            return allowedTypes.Contains(type);
         }
 
         public static bool IsNumber(this Type type)
@@ -45,19 +43,14 @@ namespace Faker.Extension
 
         public static bool IsDateTime(this Type type)
         {
-            bool notNullTypes = type == typeof(DateTime);
-            bool nullTypes    = type == typeof(DateTime?);
-            return notNullTypes || nullTypes;
+            Type[] allowedTypes = { typeof(DateTime), typeof(DateTime?) };
+            return allowedTypes.Contains(type);
         }
 
         public static bool IsList(this Type type)
         {
-            bool isGenericList = false;
-
-            if (type.IsGenericType && ((type.GetGenericTypeDefinition() == typeof(List<>)) || (type.GetGenericTypeDefinition() == typeof(IList<>))))
-                isGenericList = true;
-
-            return isGenericList;
+            Type[] allowedTypes = { typeof(IList<>), typeof(List<>), typeof(ICollection<>), typeof(IEnumerable<>), typeof(Enumerable) };
+            return (type.IsGenericType && allowedTypes.Contains(type.GetGenericTypeDefinition()));               
         }
     }
 }
