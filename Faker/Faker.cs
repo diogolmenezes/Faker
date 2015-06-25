@@ -1,17 +1,25 @@
-﻿using Faker.Extension;
-using Faker.Factory;
-using Faker.Generator;
-using Faker.Interface;
+﻿using Faker.Interface;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Reflection;
 
 namespace Faker
 {
     public class Faker<T>
     {
+        /// <summary>
+        /// Add a aditional number to generated data.
+        /// <example>Name 1, Name 2, Name 3</example>
+        /// </summary>
+        public bool UseSequenceNumbers { get; set; }
+
+        public Faker() : this(false) { }        
+
+        public Faker(bool useSequenceNumbers)
+        {
+            UseSequenceNumbers = useSequenceNumbers;
+        }
+
         private bool IsIFakerInterface
         {
             get
@@ -27,7 +35,9 @@ namespace Faker
         
         public T Create(int number, Action<T> exp = null)
         {
-            number   = number == 0 ? 1 : number;
+            if(UseSequenceNumbers)
+                number   = number == 0 ? 1 : number;
+
             var fake = Fake(number);
             
             // defining custom properties
@@ -39,7 +49,7 @@ namespace Faker
 
         public IList<T> CreateMany(int total, Action<T> exp = null)
         {
-            var list = Enumerable.Range(0, total).Select(x => Create(x + 1, exp)).ToList();
+            var list = Enumerable.Range(0, total).Select(x => Create((UseSequenceNumbers) ? x + 1 : 0, exp)).ToList();
 
             return list;
         }

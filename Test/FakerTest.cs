@@ -105,5 +105,37 @@ namespace Faker.Test
             var worker = new Faker<Worker>().Create();
             Assert.IsTrue(LoginGenerator.Logins.Any(x => worker.Login.Contains(x)));
         }
+
+        [TestMethod]
+        public void By_Default_Dont_Use_Numbers_In_Generated_Values_On_Create()
+        {
+            var worker = new Faker<Worker>().Create();
+            Assert.IsTrue(!worker.Name.Contains("1"));
+        }
+
+        [TestMethod]
+        public void When_Set_UseSequenceNumbers_We_Have_Numbers_In_Generated_Values_On_Create()
+        {
+            var worker = new Faker<Worker>(useSequenceNumbers: true).Create();
+            Assert.IsTrue(worker.Name.Contains("1"));
+        }
+
+        [TestMethod]
+        public void By_Default_Dont_Use_Numbers_In_Generated_Values_On_CreateMany()
+        {
+            var workers = new Faker<Worker>().CreateMany(3);
+            Assert.IsTrue(workers.Any(x => !x.Name.Contains("1")));
+            Assert.IsTrue(workers.Any(x => !x.Name.Contains("2")));
+            Assert.IsTrue(workers.Any(x => !x.Name.Contains("3")));
+        }
+
+        [TestMethod]
+        public void When_Set_UseSequenceNumbers_We_Have_Numbers_In_Generated_Values_On_CreateMany()
+        {
+            var workers = new Faker<Worker>(useSequenceNumbers: true).CreateMany(3);
+            Assert.IsTrue(workers.Any(x => x.Name.Contains("1")));
+            Assert.IsTrue(workers.Any(x => x.Name.Contains("2")));
+            Assert.IsTrue(workers.Any(x => x.Name.Contains("3")));
+        }
     }
 }
