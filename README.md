@@ -41,6 +41,9 @@ var user = new Faker<User>().CreateMany(x=> { x.Age = 18; x.CreatedAt = DateTime
 
 // creating 5 fake users with 18 years and CreatedAt on today
 var user = new Faker<User>().CreateMany(5, x=> { x.Age = 18; x.CreatedAt = DateTime.Now; });
+
+// if you want that the generated data have a sequencial number at the end, like (Name 1, Name 2, Email_1@gmail.com, Email_2@gmail.com) use UseSequentialNumber in Faker contructor. By default UseSequentialNumber is false.
+var user = new Faker<User>(true).CreateMany(10);
 ```
 
 ## Creating fake objects using custom factory

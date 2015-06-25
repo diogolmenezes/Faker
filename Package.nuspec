@@ -2,7 +2,7 @@
 <package>
     <metadata>
         <id>FakerTest</id>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <authors>Diogo Menezes</authors>
         <owners>Diogo Menezes</owners>
         <description>Faker is a C# fake object generator like rails factory girl and it´s awesome to generate fake data for make tests</description>
