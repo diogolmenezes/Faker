@@ -5,6 +5,12 @@ Faker is a C# fake object generator like rails factory girl and it´s awesome to
 
 Add [Faker.dll](https://github.com/diogolmenezes/Faker/blob/master/Binary) as reference on your test project.
 
+or use the NuGet repository:
+
+```
+PM> Install-Package FakerTest
+```
+
 ## Creating simple fake objects
 Faker can create automatic fake objects based in your custom type:
 
