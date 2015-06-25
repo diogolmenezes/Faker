@@ -31,10 +31,10 @@ var user = new Faker<User>().CreateMany(10);
 You can set specific properties to have a specific value on creation
 ```
 // creating 1 fake user with 18 years and CreatedAt on today
-var user = new Faker<User>().CreateMany(x=> x.Age = 18 && x.CreatedAt = DateTime.Now);
+var user = new Faker<User>().CreateMany(x=> { x.Age = 18; x.CreatedAt = DateTime.Now; });
 
 // creating 5 fake users with 18 years and CreatedAt on today
-var user = new Faker<User>().CreateMany(5, x=> x.Age = 18 && x.CreatedAt = DateTime.Now);
+var user = new Faker<User>().CreateMany(5, x=> { x.Age = 18; x.CreatedAt = DateTime.Now; });
 ```
 
 ## Creating fake objects using custom factory
@@ -52,8 +52,8 @@ public class User : IFaker<User>
 
     public void Fake(int number)
     {
-        Name       = NameGenerator.Get();
-        Email      = EmailGenerator.Get();
+        Name       = NameGenerator.Get();  // Name generator will generate real names like Jhon Doe, Bruno Matarazo
+        Email      = EmailGenerator.Get(); // Email generator will generate real mails like jhon_doe@gmail.com
         Age        = IntegerGenerator.Get(15, 99);
         CreatedAt  = DateTimeGenerator.Get();
     }
@@ -67,6 +67,15 @@ var user = new Faker<User>().Create();
 
 // creating 10 fake users using IFake<T> interface
 var user = new Faker<User>().CreateMany(10);
+```
+
+## Using simple generators
+
+You can use generators without use IFaker<T> interface too.
+
+```
+// creating 10 users with real names and real mail adresses
+var user = new Faker<User>().CreateMany(10, x=> { x.Name = NameGenerator.Get(); x.Email = EmailGenarator.Get() });
 ```
 
 ## Tests
