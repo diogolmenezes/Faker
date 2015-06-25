@@ -75,7 +75,7 @@ You can use generators without use IFaker<T> interface too.
 
 ```
 // creating 10 users with real names and real mail adresses
-var user = new Faker<User>().CreateMany(10, x=> { x.Name = NameGenerator.Get(); x.Email = EmailGenarator.Get() });
+var user = new Faker<User>().CreateMany(10, x=> { x.Name = NameGenerator.Get(); x.Email = EmailGenerator.Get() });
 ```
 
 ## Tests
