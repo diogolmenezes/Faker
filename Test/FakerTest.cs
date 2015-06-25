@@ -59,7 +59,6 @@ namespace Faker.Test
             Assert.IsTrue(cars.All(x => x.Color == ""));
         }
 
-
         [TestMethod]
         public void Can_Create_5_Without_Color_And_Model()
         {
