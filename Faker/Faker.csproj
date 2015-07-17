@@ -44,6 +44,7 @@
     <Compile Include="Factory\GeneratorFactory.cs" />
     <Compile Include="Faker.cs" />
     <Compile Include="Generator\DateTimeGenerator.cs" />
+    <Compile Include="Generator\IdGenerator.cs" />
     <Compile Include="Util\FakerRandom.cs" />
     <Compile Include="Generator\IntegerGenerator.cs" />
     <Compile Include="Generator\EmailGenerator.cs" />

@@ -28,6 +28,11 @@ namespace Faker
             }
         }
 
+        public T Create()
+        {
+            return Create(0, null);
+        }
+
         public T Create(Action<T> exp = null)
         {
             return Create(0, exp);

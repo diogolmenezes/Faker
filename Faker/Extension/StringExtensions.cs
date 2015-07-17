@@ -24,5 +24,12 @@ namespace Faker.Extension
 
             return fieldName != null &&  values.Contains(fieldName.ToLower());
         }
+
+        public static bool IsIdField(this string fieldName)
+        {
+            string[] values = { "id" };
+
+            return fieldName != null &&  values.Contains(fieldName.ToLower());
+        }
     }
 }

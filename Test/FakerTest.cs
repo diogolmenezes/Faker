@@ -137,5 +137,15 @@ namespace Faker.Test
             Assert.IsTrue(workers.Any(x => x.Name.Contains("2")));
             Assert.IsTrue(workers.Any(x => x.Name.Contains("3")));
         }
+
+        [TestMethod]
+        public void When_Create_First_Level_Etity_Must_Create_Second_And_Third_Level_Entities()
+        {
+            var firstLevel = new Faker<FirtLevel>().Create();
+
+            Assert.IsNotNull(firstLevel);
+            Assert.IsNotNull(firstLevel.SecondLevel);
+            Assert.IsNotNull(firstLevel.SecondLevel.ThirdLevel);
+        }
     }
 }

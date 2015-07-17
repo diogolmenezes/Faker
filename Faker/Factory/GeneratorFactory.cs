@@ -18,6 +18,9 @@ namespace Faker.Factory
             if (property.Name.IsLoginField())
                 return new LoginGenerator();
 
+            if (property.Name.IsIdField())
+                return new IdGenerator();
+
             return new StringGenerator();
         }
     }

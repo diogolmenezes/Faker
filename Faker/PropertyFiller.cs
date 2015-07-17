@@ -1,13 +1,9 @@
-﻿using Faker.Factory;
-using Faker.Extension;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Faker.Extension;
+using Faker.Factory;
 using Faker.Generator;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection;
 
 namespace Faker
 {
@@ -63,7 +59,13 @@ namespace Faker
                     // use faker constructor
                     Type genericType = typeof(Faker<>).MakeGenericType(type);
                     var faker        = Activator.CreateInstance(genericType);
-                    var fakeObject   = genericType.GetMethod("Create").Invoke(faker, new object[] { 1 });
+
+                    // Ex: call with int and string arguments
+                    // obj.GetType().GetMethod("Foo", new Type[] { typeof(int), typeof(string)).Invoke(obj, new object[] { 42, "Hello" });
+                    // Ex: call without arguments
+                    // obj.GetType().GetMethod("Foo", new Type[0]).Invoke(obj, new object[0]);
+
+                    var fakeObject   = genericType.GetMethod("Create", new Type[0]).Invoke(faker, new object[0]);
 
                     property.SetValue(entity, fakeObject, null);
                 }
